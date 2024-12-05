@@ -1,18 +1,14 @@
 ﻿namespace Entities
 {
-    using System.Collections.Generic;
-
-    public class Asignatura
+    public partial class Asignatura
     {
-        public int IdAsignatura { get; set; }
+        public int AsignaturaId { get; set; }
 
         public string Nombre { get; set; } = null!;
 
         public int Creditos { get; set; }
 
-        public int? Semestre { get; set; }
-
-        public int? IdTitulacion { get; set; }
+        public int TitulacionId { get; set; }
 
         public string Codigo { get; set; } = null!;
 
@@ -20,14 +16,22 @@
 
         public int? CreditosLaboratorio { get; set; }
 
-        public bool LibreConfiguracion { get; set; }
+        public string DiaSemana1 { get; set; } = null!;
 
-        public virtual ICollection<Calificacion> Calificacions { get; set; } = new List<Calificacion>();
+        public string? DiaSemana2 { get; set; }
+
+        public TimeOnly HoraInicio1 { get; set; }
+
+        public TimeOnly HoraFin1 { get; set; }
+
+        public TimeOnly? HoraInicio2 { get; set; }
+
+        public TimeOnly? HoraFin2 { get; set; }
 
         public virtual ICollection<EstudianteAsignatura> EstudianteAsignaturas { get; set; } = new List<EstudianteAsignatura>();
 
-        public virtual Titulacion? IdTitulacionNavigation { get; set; }
+        public virtual ICollection<ProfesorAsignatura> ProfesorAsignaturas { get; set; } = new List<ProfesorAsignatura>();
 
-        public virtual ICollection<Usuario> IdProfesors { get; set; } = new List<Usuario>();
+        public virtual Titulacion Titulacion { get; set; } = null!;
     }
 }

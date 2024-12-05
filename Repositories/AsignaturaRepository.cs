@@ -4,7 +4,7 @@
     using Entities;
     using RepositoryContracts;
 
-    public class AsignaturaRepository(UniversidadContext context) : IAsignaturaRepository
+    public class AsignaturaRepository(UniversidadDbContext context) : IAsignaturaRepository
     {
         public Asignatura? GetSubjectById(int id)
         {

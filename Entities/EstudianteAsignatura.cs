@@ -1,21 +1,17 @@
 ﻿namespace Entities
 {
-    using System;
-
-    public class EstudianteAsignatura
+    public partial class EstudianteAsignatura
     {
-        public int IdEstudiante { get; set; }
+        public int EstudianteAsignaturaId { get; set; }
 
-        public int IdAsignatura { get; set; }
+        public int AsignaturaId { get; set; }
 
-        public int IdCuatrimestre { get; set; }
+        public int EstudianteId { get; set; }
 
-        public DateOnly? FechaInscripcion { get; set; }
+        public decimal? Calificacion { get; set; }
 
-        public virtual Asignatura IdAsignaturaNavigation { get; set; } = null!;
+        public virtual Asignatura Asignatura { get; set; } = null!;
 
-        public virtual Cuatrimestre IdCuatrimestreNavigation { get; set; } = null!;
-
-        public virtual Usuario IdEstudianteNavigation { get; set; } = null!;
+        public virtual Estudiante Estudiante { get; set; } = null!;
     }
 }

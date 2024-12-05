@@ -4,17 +4,17 @@
     using Entities;
     using RepositoryContracts;
 
-    public class EstudianteAsignaturaRepository(UniversidadContext context) : IEstudianteAsignaturaRepository
+    public class EstudianteAsignaturaRepository(UniversidadDbContext context) : IEstudianteAsignaturaRepository
     {
-        public void AddAndSaveStudentSubject(EstudianteAsignatura estudianteAsignatura)
+        public void AddAndSaveStudentSubjects(List<EstudianteAsignatura> estudianteAsignatura)
         {
-            context.EstudianteAsignaturas.Add(estudianteAsignatura);
+            context.EstudianteAsignaturas.AddRange(estudianteAsignatura);
             context.SaveChanges();
         }
 
         public IQueryable<EstudianteAsignatura> GetStudentSubjectsByStudentId(int studentId)
         {
-            return context.EstudianteAsignaturas.Where(s => s.IdEstudiante == studentId);
+            return context.EstudianteAsignaturas.Where(s => s.EstudianteId == studentId);
         }
 
         public void RemoveAndSaveStudentSubject(int studentSubjectId)

@@ -1,17 +1,19 @@
 ﻿namespace Entities
 {
-    using System.Collections.Generic;
-
-    public class Titulacion
+    public partial class Titulacion
     {
-        public int IdTitulacion { get; set; }
+        public int TitulacionId { get; set; }
 
         public string Nombre { get; set; } = null!;
 
-        public string? Descripcion { get; set; }
+        public string Encargado { get; set; } = null!;
 
-        public int? Duracion { get; set; }
+        public virtual ICollection<AreaConocimiento> AreaConocimientos { get; set; } = new List<AreaConocimiento>();
 
         public virtual ICollection<Asignatura> Asignaturas { get; set; } = new List<Asignatura>();
+
+        public virtual ICollection<Estudiante> Estudiantes { get; set; } = new List<Estudiante>();
+
+        public virtual ICollection<Profesor> Profesors { get; set; } = new List<Profesor>();
     }
 }

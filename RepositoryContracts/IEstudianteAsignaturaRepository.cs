@@ -5,9 +5,7 @@
     public interface IEstudianteAsignaturaRepository
     {
         IQueryable<EstudianteAsignatura> GetStudentSubjectsByStudentId(int studentId);
-
-        void AddAndSaveStudentSubject(EstudianteAsignatura estudianteAsignatura);
-
+        void AddAndSaveStudentSubjects(List<EstudianteAsignatura> estudianteAsignatura);
         void RemoveAndSaveStudentSubject(int studentSubjectId);
     }
 }
