@@ -4,7 +4,7 @@
 
     public interface IEstudianteRepository
     {
-        Estudiante? GetUserById(int userId);
-        void AddAndSaveUser(Estudiante usuario);
+        Estudiante? GetStudentById(int userId);
+        void AddAndSaveStudent(Estudiante usuario);
     }
 }

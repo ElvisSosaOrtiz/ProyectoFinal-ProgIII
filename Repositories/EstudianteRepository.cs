@@ -6,12 +6,12 @@
 
     public class EstudianteRepository(UniversidadDbContext context) : IEstudianteRepository
     {
-        public Estudiante? GetUserById(int userId)
+        public Estudiante? GetStudentById(int userId)
         {
             return context.Estudiantes.Find(userId);
         }
 
-        public void AddAndSaveUser(Estudiante Estudiante)
+        public void AddAndSaveStudent(Estudiante Estudiante)
         {
             context.Estudiantes.Add(Estudiante);
             context.SaveChanges();
