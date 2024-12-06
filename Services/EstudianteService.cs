@@ -30,6 +30,7 @@
                     Id = student.EstudianteId,
                     Nombre = student.Nombre,
                     Apellidos = student.Apellidos,
+                    Username = student.Username,
                     Email = student.Email,
                     Telefono = student.Telefono,
                     Titulacion = student.Titulacion.Nombre
@@ -51,8 +52,11 @@
                     Nombre = request.Nombre,
                     Apellidos = request.Apellidos,
                     Email = request.Email,
+                    Username = request.Username,
+                    Password = request.Password,
                     Telefono = request.Telefono,
-                    TitulacionId =  request.TitulacionId 
+                    TitulacionId =  request.TitulacionId,
+                    TipoUsuario = 1
                 };
 
                 repository.AddAndSaveStudent(student);
