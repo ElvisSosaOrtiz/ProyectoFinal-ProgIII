@@ -10,7 +10,7 @@
         public string? Email { get; set; }
         public string? Telefono { get; set; }
         public string Titulacion { get; set; } = null!;
-        public IEnumerable<AsignaturaEstudiante> StudentSubjects { get; set; } = [];
+        public IEnumerable<AsignaturaEstudiante> AsignaturasSeleccionadas { get; set; } = [];
 
         public class AsignaturaEstudiante
         {

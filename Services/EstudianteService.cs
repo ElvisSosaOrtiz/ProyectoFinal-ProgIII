@@ -52,7 +52,8 @@
                     Apellidos = request.Apellidos,
                     Email = request.Email,
                     Telefono = request.Telefono,
-                    TitulacionId =  request.TitulacionId 
+                    TitulacionId =  request.TitulacionId,
+                    TipoUsuario = 1
                 };
 
                 repository.AddAndSaveStudent(student);
