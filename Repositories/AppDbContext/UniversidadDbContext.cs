@@ -76,7 +76,6 @@ public partial class UniversidadDbContext : DbContext
 
             entity.HasIndex(e => e.Email, "UQ__Estudian__A9D1053466AF1D79").IsUnique();
 
-            entity.Property(e => e.EstudianteId).ValueGeneratedNever();
             entity.Property(e => e.Apellidos)
                 .HasMaxLength(100)
                 .IsUnicode(false);
