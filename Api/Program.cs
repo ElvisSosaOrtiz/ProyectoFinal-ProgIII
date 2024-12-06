@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using Repositories;
+using Repositories.AppDbContext;
 using RepositoryContracts;
 using ServiceContracts;
 using Services;
@@ -13,11 +15,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Dependency injection
-builder.Services
-    .AddScoped<IAsignaturaRepository, AsignaturaRepository>()
-    .AddScoped<IEstudianteAsignaturaRepository, EstudianteAsignaturaRepository>()
-    .AddScoped<IEstudianteRepository, EstudianteRepository>()
-    .AddScoped<IEstudianteService, EstudianteService>();
+//builder.Services
+//.AddScoped<IAsignaturaRepository, AsignaturaRepository>()
+//.AddScoped<IEstudianteAsignaturaRepository, EstudianteAsignaturaRepository>()
+
+builder.Services.AddDbContext<UniversidadDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+builder.Services.AddScoped<IEstudianteRepository, EstudianteRepository>();
+builder.Services.AddScoped<IEstudianteService, EstudianteService>();
 
 var app = builder.Build();
 

@@ -1,10 +1,9 @@
 ﻿namespace Repositories
 {
-    using Api.AppDbContext;
     using Entities;
     using RepositoryContracts;
 
-    public class EstudianteAsignaturaRepository(UniversidadDbContext context) : IEstudianteAsignaturaRepository
+    public class EstudianteAsignaturaRepository(AppDbContext.UniversidadDbContext context) : IEstudianteAsignaturaRepository
     {
         public void AddAndSaveStudentSubjects(List<EstudianteAsignatura> estudianteAsignatura)
         {

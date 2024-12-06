@@ -7,10 +7,17 @@
     using Shared.Request;
     using Shared.Response;
 
-    public class EstudianteService(
-        IEstudianteRepository repository,
-        ILogger<EstudianteService> logger) : IEstudianteService
+    public class EstudianteService : IEstudianteService
     {
+        private readonly IEstudianteRepository repository;
+        private readonly ILogger<EstudianteService> logger;
+
+        public EstudianteService(IEstudianteRepository repository, ILogger<EstudianteService> logger)
+        {
+            this.repository = repository;
+            this.logger = logger;
+        }
+
         public ResponseOfGetStudent GetStudentById(int studentId)
         {
             try
@@ -45,7 +52,7 @@
                     Apellidos = request.Apellidos,
                     Email = request.Email,
                     Telefono = request.Telefono,
-                    Titulacion = new() { Nombre = request.Nombre }
+                    TitulacionId =  request.TitulacionId 
                 };
 
                 repository.AddAndSaveStudent(student);

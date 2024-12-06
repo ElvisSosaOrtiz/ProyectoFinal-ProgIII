@@ -6,6 +6,6 @@
         public required string Apellidos { get; set; } = null!;
         public string? Email { get; set; }
         public string? Telefono { get; set; }
-        public required string Titulacion { get; set; } = null!;
+        public required int TitulacionId { get; set; }
     }
 }

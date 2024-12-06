@@ -1,10 +1,10 @@
 ﻿namespace Repositories
 {
-    using Api.AppDbContext;
+
     using Entities;
     using RepositoryContracts;
 
-    public class AsignaturaRepository(UniversidadDbContext context) : IAsignaturaRepository
+    public class AsignaturaRepository(AppDbContext.UniversidadDbContext context) : IAsignaturaRepository
     {
         public Asignatura? GetSubjectById(int id)
         {

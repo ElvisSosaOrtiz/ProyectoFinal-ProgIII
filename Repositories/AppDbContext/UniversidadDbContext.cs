@@ -1,7 +1,7 @@
 ﻿using Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.AppDbContext;
+namespace Repositories.AppDbContext;
 
 public partial class UniversidadDbContext : DbContext
 {
@@ -28,9 +28,6 @@ public partial class UniversidadDbContext : DbContext
 
     public virtual DbSet<Titulacion> Titulacions { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-5QQG7I2\\SQLEXPRESS;Database=UniversidadDB;Integrated Security=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
