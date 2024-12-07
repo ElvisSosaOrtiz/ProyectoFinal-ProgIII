@@ -1,0 +1,7 @@
+﻿.form-check-input {
+    cursor: pointer;
+}
+
+.form-check-input:focus {
+    box-shadow: none;
+}

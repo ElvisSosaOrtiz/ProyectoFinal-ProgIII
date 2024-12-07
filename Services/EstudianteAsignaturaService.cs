@@ -50,7 +50,7 @@
                 return _estudianteAsignaturaRepository.GetStudentSubjectsByStudentId(idEstudiante)
                     .Select(a => new ResponseOfGetEstudianteAsignatura
                     {
-                        Id = a.EstudianteAsignaturaId,
+                        Id = a.Asignatura.AsignaturaId,
                         Nombre = a.Asignatura.Nombre,
                         Creditos = a.Asignatura.Creditos,
                         Codigo = a.Asignatura.Codigo,

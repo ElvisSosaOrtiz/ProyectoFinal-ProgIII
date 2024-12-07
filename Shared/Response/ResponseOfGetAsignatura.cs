@@ -17,6 +17,6 @@
         public TimeOnly HoraFin1 { get; set; }
         public TimeOnly? HoraInicio2 { get; set; }
         public TimeOnly? HoraFin2 { get; set; }
-        public IEnumerable<string> Profesores { get; set; } = [];
+        public IEnumerable<ResponseOfGetProfesor> Profesores { get; set; } = [];
     }
 }

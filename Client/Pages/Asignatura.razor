@@ -1,0 +1,37 @@
+﻿@page "/asignatura/{Id:int}"
+@using Shared.Response
+
+<PageTitle>@AsignaturaResponse.Codigo - @AsignaturaResponse.Nombre</PageTitle>
+@if (AsignaturaResponse != ResponseOfGetAsignatura.Empty)
+{
+    <h1>@AsignaturaResponse.Codigo - @AsignaturaResponse.Nombre</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="row">Créditos</th>
+                <th scope="row">Créditos teóricos</th>
+                <th scope="row">Créditos laboratorios</th>
+                <th scope="row">Horario (día uno)</th>
+                <th scope="row">Horario (día dos)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@AsignaturaResponse.Creditos</td>
+                <td>@AsignaturaResponse.CreditosTeoricos</td>
+                <td>@AsignaturaResponse.CreditosLaboratorios</td>
+                <td>@AsignaturaResponse.DiaSemana1 (@AsignaturaResponse.HoraInicio1 - @AsignaturaResponse.HoraFin1)</td>
+                <td>@AsignaturaResponse.DiaSemana2 (@AsignaturaResponse.HoraInicio2 - @AsignaturaResponse.HoraFin2)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Profesores</h3>
+    <ul class="list-group">
+        @foreach (var profesor in AsignaturaResponse.Profesores)
+        {
+            <li class="list-group-item" @onclick="_ => NavigateToProfesor(profesor.Id)">@profesor.Nombre @profesor.Apellido</li>
+        }
+    </ul>
+}

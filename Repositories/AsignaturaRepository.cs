@@ -9,15 +9,18 @@
         public Asignatura? GetSubjectById(int id)
         {
             return context.Asignaturas
+                .Include(x => x.Titulacion)
                 .Include(x => x.ProfesorAsignaturas)
                 .ThenInclude(p => p.Profesor)
-                .Include(x => x.Titulacion)
                 .FirstOrDefault(a => a.AsignaturaId == id);
         }
 
         public IQueryable<Asignatura> QueryAllAsignaturas()
         {
-            return context.Asignaturas;
+            return context.Asignaturas
+                .Include(x => x.Titulacion)
+                .Include(x => x.ProfesorAsignaturas)
+                .ThenInclude(p => p.Profesor);
         }
     }
 }
