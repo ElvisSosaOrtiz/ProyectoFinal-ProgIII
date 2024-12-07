@@ -16,7 +16,7 @@
 
         protected override async Task OnInitializedAsync()
         {
-            Asignaturas = await HttpClient.GetFromJsonAsync<IEnumerable<ResponseOfGetEstudianteAsignatura>>(EstudianteAsignaturaControllerRoutes.GetEstudianteAsignaturas(1)) ?? [];
+            Asignaturas = await HttpClient.GetFromJsonAsync<IEnumerable<ResponseOfGetEstudianteAsignatura>>(EstudianteAsignaturaControllerRoutes.GetEstudianteAsignaturas(4)) ?? [];
         }
 
         private void NavigateToAsignatura(int id) => NavManager.NavigateTo(ClientRoutes.NavigateToAsignatura(id));
