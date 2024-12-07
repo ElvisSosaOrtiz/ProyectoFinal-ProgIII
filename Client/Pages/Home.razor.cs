@@ -14,8 +14,7 @@
 
         protected override async Task OnInitializedAsync()
         {
-            Asignaturas = await HttpClient.GetFromJsonAsync<IEnumerable<ResponseOfGetEstudianteAsignatura>>(EstudianteAsignaturaControllerRoutes.GetEstudianteAsignaturas(4))
-                ?? Enumerable.Empty<ResponseOfGetEstudianteAsignatura>();
+            Asignaturas = await HttpClient.GetFromJsonAsync<IEnumerable<ResponseOfGetEstudianteAsignatura>>(EstudianteAsignaturaControllerRoutes.GetEstudianteAsignaturas(4)) ?? [];
         }
     }
 }
