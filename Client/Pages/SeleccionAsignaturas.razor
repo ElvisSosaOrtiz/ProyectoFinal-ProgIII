@@ -1,0 +1,37 @@
+﻿@page "/seleccion-asignaturas"
+
+<PageTitle>Selección asignaturas</PageTitle>
+
+<div class="d-flex justify-content-between">
+    <h1>Selección asignaturas</h1>
+    <button class="btn btn-success" @onclick="AddAsignaturasAsync">Guardar</button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Creditos</th>
+            <th scope="col">Docente</th>
+            <th scope="col">Horario 1</th>
+            <th scope="col">Horario 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var asignatura in Asignaturas)
+        {
+            <tr class="table_element">
+                <td>
+                    <input type="checkbox" class="form-check-input" />
+                    @asignatura.Codigo
+                </td>
+                <td>@asignatura.Nombre</td>
+                <td>@asignatura.Creditos</td>
+                <td>@asignatura.Profesores.First().Nombre @asignatura.Profesores.First().Apellido</td>
+                <td>@asignatura.DiaSemana1 (@asignatura.HoraInicio1 - @asignatura.HoraFin1)</td>
+                <td>@asignatura.DiaSemana2 (@asignatura.HoraInicio2 - @asignatura.HoraFin2)</td>
+            </tr>
+        }
+    </tbody>
+</table>

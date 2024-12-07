@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Mis asignaturas</PageTitle>
 
 <table class="table">
     <thead>
@@ -16,7 +16,7 @@
     <tbody>
         @foreach (var asignatura in Asignaturas)
         {
-            <tr>
+            <tr class="table_element" @onclick="_ => NavigateToAsignatura(asignatura.Id)">
                 <td>@asignatura.Codigo</td>
                 <td>@asignatura.Nombre</td>
                 <td>@asignatura.Creditos</td>

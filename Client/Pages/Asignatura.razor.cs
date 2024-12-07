@@ -7,18 +7,20 @@
     using System.Net.Http.Json;
     using System.Threading.Tasks;
 
-    public partial class Home
+    public partial class Asignatura
     {
         [Inject] private HttpClient HttpClient { get; init; } = null!;
         [Inject] private NavigationManager NavManager { get; init; } = null!;
 
-        public IEnumerable<ResponseOfGetEstudianteAsignatura> Asignaturas { get; set; } = [];
+        [Parameter] public int Id { get; set; }
+
+        public ResponseOfGetAsignatura AsignaturaResponse { get; set; } = ResponseOfGetAsignatura.Empty;
 
         protected override async Task OnInitializedAsync()
         {
-            Asignaturas = await HttpClient.GetFromJsonAsync<IEnumerable<ResponseOfGetEstudianteAsignatura>>(EstudianteAsignaturaControllerRoutes.GetEstudianteAsignaturas(1)) ?? [];
+            AsignaturaResponse = await HttpClient.GetFromJsonAsync<ResponseOfGetAsignatura>(AsignaturaControllerRoutes.GetAsignatura(Id)) ?? new();
         }
 
-        private void NavigateToAsignatura(int id) => NavManager.NavigateTo(ClientRoutes.NavigateToAsignatura(id));
+        private void NavigateToProfesor(int id) => NavManager.NavigateTo(ClientRoutes.NavigateToProfesor(id));
     }
 }

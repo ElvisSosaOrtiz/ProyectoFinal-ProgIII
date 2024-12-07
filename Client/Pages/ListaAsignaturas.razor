@@ -1,0 +1,49 @@
+﻿@page "/lista-asignaturas"
+
+<PageTitle>Selección asignaturas</PageTitle>
+@if (Asignaturas.Any())
+{
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            Filtrar por titulación
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+        </ul>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Créditos</th>
+                <th scope="col">Créditos teóricos</th>
+                <th scope="col">Créditos laboratorios</th>
+                <th scope="col">Docente</th>
+                <th scope="col">Titulación</th>
+                <th scope="col">Horario 1</th>
+                <th scope="col">Horario 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var asignatura in Asignaturas)
+            {
+                <tr class="table_element">
+                    <td>@asignatura.Codigo</td>
+                    <td>@asignatura.Nombre</td>
+                    <td>@asignatura.Creditos</td>
+                    <td>@asignatura.CreditosTeoricos</td>
+                    <td>@asignatura.CreditosLaboratorios</td>
+                    <td>@asignatura.Profesores.First().Nombre @asignatura.Profesores.First().Apellido</td>
+                    <td>@asignatura.Titulacion</td>
+                    <td>@asignatura.DiaSemana1 (@asignatura.HoraInicio1 - @asignatura.HoraFin1)</td>
+                    <td>@asignatura.DiaSemana2 (@asignatura.HoraInicio2 - @asignatura.HoraFin2)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

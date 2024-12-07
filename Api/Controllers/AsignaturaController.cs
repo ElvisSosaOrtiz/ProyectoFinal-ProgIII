@@ -16,7 +16,14 @@
             _service = service;
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet]
+        public IActionResult GetAllAsignaturas()
+        {
+            var result = _service.GetAllAsignaturas();
+            return Ok(result);
+        }
+
+        [HttpGet("{id}")]
         public IActionResult GetAsignatura(int id)
         {
             var result = _service.GetAsignaturaById(id);
