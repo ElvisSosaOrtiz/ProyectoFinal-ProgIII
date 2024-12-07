@@ -12,13 +12,18 @@
 
         [Parameter] public int ProfesorId { get; set; } // Este valor se obtiene de la URL.
 
+        public IEnumerable<ResponseOfGetProfesorAsignaturaProfesorId> Asignaturas { get; set; } = [];
+
+
         public ResponseOfGetProfesor UnProfesor { get; set; } = new();
 
     protected override async Task OnInitializedAsync()
     {
         UnProfesor = await HttpClient.GetFromJsonAsync<ResponseOfGetProfesor>(ProfesorControllerRoutes.GetProfesorId(ProfesorId)) ?? new();
+        Asignaturas = await HttpClient.GetFromJsonAsync<IEnumerable<ResponseOfGetProfesorAsignaturaProfesorId>>(ProfesorAsignaturaControllerRoutes.GetProfesorAsignaturaProfesorId(ProfesorId)) ?? [];
+
+        }
+
+
     }
-
-
-}
 }

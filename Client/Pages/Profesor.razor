@@ -19,3 +19,31 @@
         <p class="card-text">Titulacion: <strong>@UnProfesor.Titulacion.</strong></p>
     </div>
 </div>
+
+<div>
+
+    <h4>Asignaturas que imparte el maestro</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Creditos</th>
+                <th scope="col">Horario</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var asignatura in Asignaturas)
+            {
+                <tr>
+                    <td>@asignatura.AsignaturaCodigo</td>
+                    <td>@asignatura.NombreAsignatura</td>
+                    <td>@asignatura.CreditosTeoricos</td>
+                    <td>@asignatura.DiaSemana1 (@asignatura.HoraInicio1 - @asignatura.HoraFin1)
+                        <br />@asignatura.DiaSemana2 (@asignatura.HoraInicio2 - @asignatura.HoraFin2)
+                        </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

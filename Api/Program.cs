@@ -23,7 +23,9 @@ builder.Services
     .AddScoped<IEstudianteService, EstudianteService>()
     .AddScoped<IAsignaturaService, AsignaturaService>()
     .AddScoped<IEstudianteAsignaturaService, EstudianteAsignaturaService>()
-    .AddScoped<IProfesorService, ProfesorService>();
+    .AddScoped<IProfesorService, ProfesorService>()
+    .AddScoped<IProfesorAsignaturaService, ProfesorAsignaturaService>()
+    .AddScoped<IProfesorAsignaturaRepository, ProfesorAsignaturaRepository>();
 
 builder.Services.AddDbContext<UniversidadDbContext>(options =>
 {
