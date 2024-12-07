@@ -5,7 +5,7 @@
 
     public interface IEstudianteService
     {
-        ResponseOfGetStudent GetStudentById(int studentId);
+        ResponseOfGetEstudiante GetStudentById(int studentId);
         void RegisterStudent(RequestOfRegisterStudent request);
     }
 }

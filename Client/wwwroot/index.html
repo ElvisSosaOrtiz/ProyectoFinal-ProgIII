@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100 m-0">
 
 <head>
     <meta charset="utf-8" />
@@ -12,8 +12,8 @@
     <link href="Client.styles.css" rel="stylesheet" />
 </head>
 
-<body>
-    <div id="app">
+<body class="h-100 m-0">
+    <div class="h-100 m-0" id="app">
         <svg class="loading-progress">
             <circle r="40%" cx="50%" cy="50%" />
             <circle r="40%" cx="50%" cy="50%" />
@@ -27,6 +27,9 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
+    <environment names="Development">
+        <script src="_framework/aspnetcore-browser-refresh.js"></script>
+    </environment>
 </body>
 
 </html>

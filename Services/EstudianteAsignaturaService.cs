@@ -55,6 +55,8 @@
                         Creditos = a.Asignatura.Creditos,
                         Codigo = a.Asignatura.Codigo,
                         Calificacion = a.Calificacion,
+                        DiaSemana1 = a.Asignatura.DiaSemana1,
+                        DiaSemana2 = a.Asignatura.DiaSemana2,
                         HoraInicio1 = a.Asignatura.HoraInicio1,
                         HoraInicio2 = a.Asignatura.HoraInicio2,
                         HoraFin1 = a.Asignatura.HoraFin1,

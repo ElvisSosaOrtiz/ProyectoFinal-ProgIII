@@ -18,7 +18,7 @@
             this.logger = logger;
         }
 
-        public ResponseOfGetStudent GetStudentById(int studentId)
+        public ResponseOfGetEstudiante GetStudentById(int studentId)
         {
             try
             {
@@ -39,7 +39,7 @@
             catch (Exception ex)
             {
                 logger.LogError(ex, ex.Message);
-                return ResponseOfGetStudent.Empty;
+                return ResponseOfGetEstudiante.Empty;
             }
         }
 

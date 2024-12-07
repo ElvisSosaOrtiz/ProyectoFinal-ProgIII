@@ -1,0 +1,18 @@
+﻿@* @page "/" *@
+@using Client.Routing
+
+<div class="d-flex align-items-center justify-content-center h-100 m-0">
+    <div class="d-flex align-items-center justify-content-center flex-column h-75 w-75 login_form">
+        <h1 class="mb-3">Iniciar sesión</h1>
+        <EditForm Model="ViewModel">
+            <div class="form-group">
+                <DataAnnotationsValidator />
+                <input type="text" placeholder="Nombre de usuario" class="form-control mb-3" @bind="ViewModel.Username" />
+                <input type="password" placeholder="Contraseña" class="form-control mb-3" @bind="ViewModel.Password" />
+                <button type="button" class="btn btn-outline-primary" @onclick="_ => NavManager.NavigateTo(ClientRoutes.Register)">Crear cuenta</button>
+                <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                <small class="text-danger @LabelClass">Usuario o contraseña incorrectos</small>
+            </div>
+        </EditForm>
+    </div>
+</div>
