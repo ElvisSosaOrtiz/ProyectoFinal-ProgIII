@@ -61,7 +61,8 @@
                         HoraInicio2 = a.Asignatura.HoraInicio2,
                         HoraFin1 = a.Asignatura.HoraFin1,
                         HoraFin2 = a.Asignatura.HoraFin2,
-                        Profesor = NombreProfesor(a)
+                        Profesor = NombreProfesor(a),
+                        ProfesorId = a.Asignatura.ProfesorAsignaturas.First(x => x.AsignaturaId == a.AsignaturaId).ProfesorId
                     });
             }
             catch (Exception ex)
